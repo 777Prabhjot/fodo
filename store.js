@@ -20,4 +20,17 @@ export const useCartStore = create((set) => ({
         item.id === updatedItem.id ? updatedItem : item
       ),
     })),
+  clearCartItems: () => set({ cartItems: [] }),
+}));
+
+export const useMyOrdersStore = create((set) => ({
+  myOrders: [],
+  addToMyOrders: (orders) =>
+    set((state) => orders.map((item) => state.myOrders.push(item))),
+}));
+
+export const useLoginStore = create((set) => ({
+  user: null,
+  login: (userData) => set({ user: userData }),
+  logout: () => set({ user: null }),
 }));
