@@ -1,68 +1,77 @@
-import { Slot, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import Icon from "react-native-vector-icons/Entypo";
 import ShopIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import HeartIcon from "react-native-vector-icons/AntDesign";
-import UserIcon from "react-native-vector-icons/FontAwesome5";
-import SearchIcon from "react-native-vector-icons/AntDesign";
+import IIcon from "react-native-vector-icons/Ionicons";
+import { useLoginStore } from "../store";
 
 export default function HomeLayout() {
+  const userInfo = useLoginStore((state) => state.user);
+
   return (
-    <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{
-          headerTitle: "Home",
-          tabBarIcon: ({ focused }) => (
-            <Icon name="home" size={25} color={focused && "#4FAE5A"} />
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="foods"
-        options={{
-          headerTitle: "Foods",
-          tabBarIcon: ({ focused }) => (
-            <ShopIcon
-              name="shopping-search"
-              size={25}
-              color={focused && "#4FAE5A"}
-            />
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="wishlist"
-        options={{
-          headerTitle: "Wishlist",
-          tabBarIcon: ({ focused }) => (
-            <HeartIcon name="heart" size={25} color={focused && "#4FAE5A"} />
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          headerTitle: "Profile",
-          tabBarIcon: ({ focused }) => (
-            <UserIcon
-              name="user-circle"
-              size={25}
-              color={focused && "#4FAE5A"}
-            />
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="(draw)"
-        options={{
-          headerShown: false,
-          tabBarShowLabel: false,
-        }}
-      />
-    </Tabs>
+    <>
+      {!userInfo ? (
+        <Tabs>
+          <Tabs.Screen
+            name="index"
+            options={{
+              headerShown: false,
+              tabBarHideOnKeyboard: true,
+              tabBarStyle: {
+                display: "none",
+              },
+              tabBarIcon: ({ focused }) => (
+                <Icon name="home" size={25} color={focused && "#4FAE5A"} />
+              ),
+              tabBarShowLabel: false,
+            }}
+          />
+        </Tabs>
+      ) : (
+        <Tabs>
+          <Tabs.Screen
+            name="index"
+            options={{
+              // headerTitle: "Foodoo",
+              headerShown: false,
+              tabBarHideOnKeyboard: true,
+              tabBarIcon: ({ focused }) => (
+                <Icon name="home" size={25} color={focused && "#4FAE5A"} />
+              ),
+              tabBarShowLabel: false,
+            }}
+          />
+          <Tabs.Screen
+            name="(foods)"
+            options={{
+              headerShown: false,
+              tabBarHideOnKeyboard: true,
+              tabBarIcon: ({ focused }) => (
+                <ShopIcon
+                  name="shopping-search"
+                  size={25}
+                  color={focused && "#4FAE5A"}
+                />
+              ),
+              tabBarShowLabel: false,
+            }}
+          />
+          <Tabs.Screen
+            name="(profile)"
+            options={{
+              headerShown: false,
+              tabBarHideOnKeyboard: true,
+              tabBarIcon: ({ focused }) => (
+                <IIcon
+                  name="person-circle-sharp"
+                  size={32}
+                  color={focused && "#4FAE5A"}
+                />
+              ),
+              tabBarShowLabel: false,
+            }}
+          />
+        </Tabs>
+      )}
+    </>
   );
 }
