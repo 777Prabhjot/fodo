@@ -42,7 +42,10 @@ const Foods = () => {
 
   return (
     <SafeAreaView style={{ position: "relative" }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{ height: "100%" }}
+        showsVerticalScrollIndicator={false}
+      >
         <FlatList
           data={DATA}
           horizontal={true}
@@ -114,5 +117,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "600",
+    fontFamily: "Neuton-Bold",
   },
 });
