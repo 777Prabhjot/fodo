@@ -8,9 +8,14 @@ const Banner = () => {
           <Text style={styles.text}>Claim your daily free delivery now!</Text>
           <Button
             mode="contained"
-            style={{ width: 115, backgroundColor: "#131613" }}
+            style={{
+              width: 115,
+              backgroundColor: "#131613",
+            }}
           >
-            Order now
+            <Text style={{ fontFamily: "Neuton-Bold", fontSize: 15 }}>
+              Order now
+            </Text>
           </Button>
         </View>
         <Image source={require("../assets/thumb.png")} style={styles.image} />
@@ -25,6 +30,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: "90%",
     fontWeight: "500",
+    fontFamily: "Neuton-Bold",
     marginBottom: 15,
     lineHeight: 22,
   },

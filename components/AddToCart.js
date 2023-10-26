@@ -14,7 +14,11 @@ const AddToCart = () => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={{ color: "white" }}>₹ {totalPrice}.00</Text>
+        <Text
+          style={{ color: "white", fontFamily: "Neuton-Regular", fontSize: 18 }}
+        >
+          ₹ {totalPrice}.00
+        </Text>
         <View style={{ position: "relative" }}>
           {cartItems?.length ? (
             <View style={styles.notify}>
@@ -32,7 +36,15 @@ const AddToCart = () => {
           onPress={() => router.push("/modal")}
         >
           <Icon name="shopping-bag" size={16} />
-          <Text style={{ marginStart: 7, fontWeight: "600" }}>Add to cart</Text>
+          <Text
+            style={{
+              marginStart: 7,
+              fontFamily: "Neuton-Bold",
+              fontSize: 16,
+            }}
+          >
+            Add to cart
+          </Text>
         </TouchableOpacity>
       </View>
     </>
