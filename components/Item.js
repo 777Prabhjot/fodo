@@ -8,7 +8,9 @@ const Item = ({ title, rating, image, time }) => {
           style={{ width: 13, height: 13 }}
           source={require("../assets/star.png")}
         />
-        <Text style={{ fontWeight: "600", marginStart: 4 }}>{rating}</Text>
+        <Text style={{ fontFamily: "Neuton-Regular", marginStart: 4 }}>
+          {rating}
+        </Text>
       </View>
       <Text style={styles.text}>{title}</Text>
       <View
@@ -17,10 +19,11 @@ const Item = ({ title, rating, image, time }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           marginBottom: 3,
+          marginTop: 3,
         }}
       >
-        <Text>1.2km</Text>
-        <Text>{time} minutes</Text>
+        <Text style={{ fontFamily: "Neuton-Regular" }}>1.2km</Text>
+        <Text style={{ fontFamily: "Neuton-Regular" }}>{time} minutes</Text>
       </View>
     </TouchableOpacity>
   );
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   text: {
-    fontWeight: "600",
+    fontFamily: "Neuton-Bold",
     marginTop: 5,
   },
 });

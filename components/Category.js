@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     height: 33,
   },
   text: {
-    fontWeight: "600",
     marginTop: 5,
+    fontFamily: "Neuton-Bold",
   },
 });
 

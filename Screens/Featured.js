@@ -51,9 +51,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   text: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 15,
+    fontSize: 20,
+    fontFamily: "Neuton-Bold",
+    marginBottom: 12,
+    marginTop: 20,
   },
 });
 
